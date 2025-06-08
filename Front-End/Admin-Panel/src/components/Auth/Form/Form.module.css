@@ -1,0 +1,11 @@
+.formBox {
+  padding: 40px 30px 40px 40px;
+}
+
+@media only screen and (max-width: 768px) {
+  .formBox {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 20px;
+  }
+}

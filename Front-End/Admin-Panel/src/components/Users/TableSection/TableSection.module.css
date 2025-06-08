@@ -1,0 +1,9 @@
+.tableArea {
+  max-width: 80%;
+  width: 80%
+}
+@media only screen and (max-width: 768px) {
+  .tableArea {
+    max-width: 90%;
+  }
+}

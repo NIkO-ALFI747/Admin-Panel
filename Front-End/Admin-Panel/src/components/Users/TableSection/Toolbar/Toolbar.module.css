@@ -1,0 +1,12 @@
+.btnBorder {
+  border: 1px solid var(--bs-warning-border-subtle);
+  border-right-width: 0;
+  margin-right: 1px;
+}
+
+.btnBorder:disabled {
+  border: 1px solid var(--bs-warning-border-subtle);
+  border-right-width: 0;
+  margin-right: 1px;
+  opacity: 0.65;
+}

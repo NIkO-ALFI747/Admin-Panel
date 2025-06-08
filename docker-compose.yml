@@ -1,0 +1,29 @@
+services:
+  admin-panel.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release
+      - ASPNETCORE_HTTP_PORTS=8080
+      - DATASOURCE_URL=DB_STRING
+      - CORS_ALLOWED_ORIGINS=http://localhost:5000
+      - JWT_SECRET_KEY=f0d434ae83ced653867bc258b0b010a96e1fdbfe15600b7a949323a0b92f11f3
+      - JWT_EXPIRES_HOURS=12
+    container_name: admin-panel.api
+    image: admin-panel.api
+    build:
+      context: .
+      dockerfile: Admin-Panel/Dockerfile
+    ports:
+    - "8080:8080"
+
+  admin-panel.client:
+    build:
+      context: Front-End/Admin-Panel
+      dockerfile: Dockerfile
+      args:
+        - VITE_USERS_URL=http://localhost:8080/api/users
+    image: admin-panel.client
+    container_name: admin-panel.client
+    ports:
+      - "5000:5000"
+    depends_on:
+      - admin-panel.api
